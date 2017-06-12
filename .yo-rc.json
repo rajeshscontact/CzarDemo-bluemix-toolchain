@@ -1,0 +1,168 @@
+{
+  "generator-cedrus-api": {
+    "haveConfigFile": true,
+    "apiOverview": {
+      "ask": false,
+      "apiName": "CzarDemo-bluemix-toolchain",
+      "apiBasePath": "/api",
+      "apiDescription": "This is a Sample Cedrus API"
+    },
+    "discover": {
+      "ask": false,
+      "apiConsumes": [
+        "application/json"
+      ],
+      "apiProduces": [
+        "application/json"
+      ]
+    },
+    "detail": {
+      "ask": false,
+      "isPublic": true,
+      "httpMethods": [
+        "get",
+        "post",
+        "put",
+        "patch",
+        "delete"
+      ],
+      "httpStatusCodes": [
+        "204",
+        "404",
+        "500"
+      ],
+      "versioning": {
+        "enabled": false,
+        "type": "uri",
+        "versionNumber": [
+          "v1"
+        ],
+        "uriOrder": "versionNumberFirst",
+        "contentTypeOrder": "applicationFirst",
+        "customHeaderName": "Version"
+      },
+      "apiData": {
+        "returnDataType": "Test Data"
+      },
+      "records": {
+        "limit": 50
+      },
+      "cache": {
+        "RedisEnable": false,
+        "RedisHost": "pub-redis-19334.dal-05.1.sl.garantiadata.com",
+        "RedisPort": "19334",
+        "RedisPassword": "zKvyYzznhsdvYwgq",
+        "RedisExpire": 180
+      },
+      "pagination": {
+        "PaginationEnable": false
+      },
+      "filter": {
+        "FilterEnable": false
+      },
+      "security": {
+        "enabled": false,
+        "type": "oauth",
+        "oauthurl": "https://169.44.7.144:8010/getAccount"
+      }
+    },
+    "deploy": {
+      "ask": false,
+      "apiApplicationType": "nodejs",
+      "openWhisk": {
+        "OpenWhiskEnable": false
+      },
+      "cloudFoundry": {
+        "enabled": true,
+        "appName": "CzarDemo-bluemix-toolchain",
+        "appMemory": "256M",
+        "bluemixToolChain": true
+      }
+    },
+    "git": {
+      "ask": false,
+      "gitEnabled": true,
+      "gitUrl": "https://github.com/rajeshscontact/CzarDemo-bluemix-toolchain.git",
+      "gitBranch": "master"
+    },
+    "dataInput": {
+      "dataInputType": "JSON Input"
+    },
+    "JSONExtraction": [
+      {
+        "resourceName": "customer",
+        "jsonFilePath": "./customer.json",
+        "jsonSchema": {
+          "title": "customer",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "firstName": {
+              "type": "string"
+            },
+            "lastName": {
+              "type": "string"
+            },
+            "age": {
+              "type": "number"
+            },
+            "address": {
+              "type": "object",
+              "properties": {
+                "streetAddress": {
+                  "type": "string"
+                },
+                "city": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "postalCode": {
+                  "type": "string"
+                }
+              }
+            },
+            "phoneNumber": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "number": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "number"
+                ]
+              }
+            }
+          }
+        },
+        "isPublic": true,
+        "httpMethods": [
+          "get",
+          "post",
+          "put",
+          "patch",
+          "delete"
+        ],
+        "httpStatusCodes": [
+          "204",
+          "404",
+          "500"
+        ],
+        "requireTestDataType": "Test Data",
+        "apiFakerMappingFileProvided": false,
+        "recordsLimit": 50,
+        "requireQuery": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+---
+applications:
+- name: CzarDemo-bluemix-toolchain
+  memory: 256M

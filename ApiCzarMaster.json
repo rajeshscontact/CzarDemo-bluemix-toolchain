@@ -1,0 +1,125 @@
+/*
+WELCOME TO THE CEDRUS API CZAR MASTER
+1. Here is where you can input details for the API we will help you generate.
+2. If there are limited options regarding what you can put we will have them on top of the parameter.
+*/
+{
+    "generatorCedrusApi": {
+        "apiOverview": {
+            // CHOICES: true, false
+            "ask": false,
+            "apiName": "CzarDemo-bluemix-toolchain",
+            "apiBasePath": "/api",
+            "apiDescription": "This is a Sample Cedrus API"
+        },
+        "discover" : {
+            // CHOICES: true, false
+            "ask": false,
+            // CHOICES for apiConsumes and apiProduces: application/json, application/xml, text/xml, text/html
+            "apiConsumes": [
+                "application/json"
+            ],
+            "apiProduces": [
+                "application/json"
+            ]
+        },
+        "detail" : {
+            // CHOICES: true, false
+            "ask": false,
+            // CHOICES: true, false
+            "isPublic": true,
+            // CHOICES: get, post, put, patch, delete
+            "httpMethods": [
+                "get",
+                "post",
+                "put",
+                "patch",
+                "delete"
+            ],
+            // CHOICES: 204, 404, 500
+            "httpStatusCodes": [
+                "204",
+                "404",
+                "500"
+            ],
+            "versioning": {
+              // CHOICES: true, false
+              "enabled": false,
+              // CHOICES: uri, content-type, custom-header
+              "type": "uri",
+              "versionNumber": [
+                "v1"
+              ],
+              // FOR URI ONLY-
+              // CHOICES:
+              // 'resourceFirst' ex: {resourse}/{versionNumber}
+              // 'versionNumberFirst' ex: {versionNumber}/{resourse}
+              "uriOrder": "versionNumberFirst",
+              // FOR CONTENT-TYPE HEADER ONLY-
+              // CHOICES:
+              // 'applicationFirst' ex: application/json+{versionNumber}
+              // 'versionNumberFirst' ex: {versionNumber}+application/json
+              "contentTypeOrder": "applicationFirst",
+              // FOR CUSTOM HEADER ONLY-
+              "customHeaderName": "Version"
+            },
+            "apiData": {
+                // CHOICES: 'Test Data', 'CloudantDB Data', 'MongoDB Data'
+                "returnDataType": "Test Data"
+            },
+            "records": {
+                // CHOICES: Any number
+                "limit": 50
+            },
+            "cache": {
+                // CHOICES: true, false
+                "RedisEnable": false,
+                "RedisHost": "pub-redis-19334.dal-05.1.sl.garantiadata.com",
+                "RedisPort": "19334",
+                "RedisPassword": "zKvyYzznhsdvYwgq",
+                // Any amount of time in seconds
+                "RedisExpire": 180
+            },
+            "pagination": {
+                // CHOICES: true, false
+                "PaginationEnable": false
+            },
+            "filter": {
+                // CHOICES: true, false
+                "FilterEnable": false
+            },
+            "security": {
+              // CHOICES: true, false
+              "enabled": false,
+              // CHOICES: basic, oauth
+              "type": "oauth",
+              "oauthurl": "https://169.44.7.144:8010/getAccount"
+            }
+        },
+        "deploy" : {
+            // CHOICES: true, false
+            "ask": false,
+            // CHOICES: 'nodejs', 'java'
+            "apiApplicationType": "nodejs",
+            "openWhisk":{
+              // CHOICES: true, false
+              "OpenWhiskEnable": false
+            },
+            "cloudFoundry":{
+              // CHOICES: true, false
+              "enabled": true,
+              "appName":"CzarDemo-bluemix-toolchain",
+              //256M, 512M
+              "appMemory":"256M",
+              "bluemixToolChain": true
+            }
+        },
+        "git": {
+          // CHOICES: true, false
+          "ask": false,
+          "gitEnabled": true,
+          "gitUrl":"https://github.com/rajeshscontact/CzarDemo-bluemix-toolchain.git",
+          "gitBranch":"master"
+        }
+    }
+}
